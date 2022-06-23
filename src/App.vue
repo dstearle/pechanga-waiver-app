@@ -19,7 +19,7 @@
 				<!-- Submit -->
 				<button 
 					type="submit"
-					class="mx-auto px-24 py-1 rounded text-3xl text-white border-2 border-green hover:text-green hover:bg-white"
+					class="mx-auto px-24 py-1 rounded text-3xl text-white bg-green-500 border-2 border-green-500 hover:text-green-500 hover:bg-white"
 				>Submit</button>
 
 			</div>
