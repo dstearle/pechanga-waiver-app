@@ -40,4 +40,19 @@
 
 </script>
 
-<style></style>
+<style>
+
+	.form-group {
+		margin-top: 20px;
+		font-size: 20px;
+		color: #9e9e9e;
+	}
+	.form-group input,
+	.form-group select {
+		width: 100%;
+		padding: 5px;
+		font-size: 18px;
+		border: 1px solid rgba(128, 128, 128, 0.199);
+	}
+	
+</style>
