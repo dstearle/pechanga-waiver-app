@@ -18,8 +18,10 @@
 
 				<!-- Submit -->
 				<button 
+					:disabled="this.loading"
 					type="submit"
 					class="mx-auto px-24 py-1 rounded text-3xl text-white bg-green-500 border-2 border-green-500 hover:text-green-500 hover:bg-white"
+					:class="{'bg-white text-green-500' : this.loading, 'bg-green-500' : !this.loading }"
 				>{{ this.submitText }}</button>
 
 			</div>
@@ -40,6 +42,7 @@
 
             return {
 
+				loading: false,
 				submitText: "Submit"
 
             }
