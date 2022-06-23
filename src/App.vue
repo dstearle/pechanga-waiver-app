@@ -20,7 +20,7 @@
 				<button 
 					type="submit"
 					class="mx-auto px-24 py-1 rounded text-3xl text-white bg-green-500 border-2 border-green-500 hover:text-green-500 hover:bg-white"
-				>Submit</button>
+				>{{ this.submitText }}</button>
 
 			</div>
 
@@ -35,6 +35,16 @@
 	export default {
 
 		name: 'App',
+
+		data() {
+
+            return {
+
+				submitText: "Submit"
+
+            }
+
+        },
 		
 	}
 
@@ -54,5 +64,5 @@
 		font-size: 18px;
 		border: 1px solid rgba(128, 128, 128, 0.199);
 	}
-	
+
 </style>
