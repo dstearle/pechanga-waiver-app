@@ -18,7 +18,7 @@
 
                     <label for="first_name">First Name:</label>
 
-                    <input type="text" id="first_name" v-model="entry.firstName">
+                    <input type="text" id="first_name">
 
                 </div>
 

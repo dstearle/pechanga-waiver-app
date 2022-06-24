@@ -13,6 +13,11 @@
 			</div>
 
 			<!-- Entries -->
+			<EntryFields 
+				:key="entryIndex"
+                :entry="entry"
+				:entryIndex="entryIndex"
+			/>
 
 			<div class="flex">
 
@@ -34,9 +39,17 @@
 
 <script>
 
+	import EntryFields from './components/EntryFields';
+
 	export default {
 
 		name: 'App',
+
+		components: {
+
+            EntryFields
+			
+        },
 
 		data() {
 
