@@ -59,6 +59,17 @@
 
                 </div>
 
+				<!-- Waiver -->
+                <div class="hidden">
+
+					<select id="waiver">
+                        <option value="spa">Spa</option>
+                        <option value="golf">Golf</option>
+                        <option value="casino">Casino</option>
+                    </select>
+
+                </div>
+
             </div>
 
 		</div>
