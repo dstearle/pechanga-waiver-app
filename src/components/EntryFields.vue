@@ -4,21 +4,58 @@
 
 		<div class="p-5 bg-white rounded shadow">
 
+			<!-- Asterisk -->
             <div class="flex flex-col md:flex-row">
 
-                <!-- Entry Title -->
-                <h2 class="underline">Entry</h2>
+                <label>* Denotes required field</label>
 
             </div>
 
-            <div class="flex flex-col md:flex-row">
+			<!-- Fields -->
+            <div class="flex flex-col">
 
                 <!-- First Name -->
                 <div class="form-group">
 
-                    <label for="first_name">First Name:</label>
+                    <label for="first">* First Name:</label>
 
-                    <input type="text" id="first_name">
+                    <input type="text" id="first">
+
+                </div>
+
+				<!-- Last Name -->
+                <div class="form-group">
+
+                    <label for="last">* Last Name:</label>
+
+                    <input type="text" id="last">
+
+                </div>
+
+				<!-- Email -->
+                <div class="form-group">
+
+                    <label for="email">* Email:</label>
+
+                    <input type="text" id="email">
+
+                </div>
+
+				<!-- Phone -->
+                <div class="form-group">
+
+                    <label for="phone">Phone:</label>
+
+                    <input type="text" id="phone">
+
+                </div>
+
+				<!-- Consent -->
+                <div class="mt-5">
+
+					<input class="mr-3" type="checkbox" id="consent" value="1">
+
+                    <label for="phone">I agree to the following terms and conditions</label>
 
                 </div>
 
