@@ -63,7 +63,7 @@
 					consent: "",
 					waiver: "spa",
 					createdAt: "",
-					updatedAt: "",
+					updatedAt: ""
 				}
 
             }
@@ -88,15 +88,12 @@
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(
 						{ 
-							id: "555",
 							first: this.entry.first,
 							last: this.entry.last,
 							email: this.entry.email,
 							phone: this.entry.phone,
 							consent: this.entry.consent,
 							waiver: this.entry.waiver,
-							createdAt: this.entry.createdAt,
-							updatedAt: this.entry.updatedAt
 						}
 					)
 
