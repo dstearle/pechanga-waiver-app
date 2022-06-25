@@ -14,9 +14,7 @@
 
 			<!-- Entries -->
 			<EntryFields 
-				:key="entryIndex"
                 :entry="entry"
-				:entryIndex="entryIndex"
 			/>
 
 			<div class="flex">
@@ -48,7 +46,7 @@
 		components: {
 
             EntryFields
-			
+
         },
 
 		data() {
@@ -56,11 +54,58 @@
             return {
 
 				loading: false,
-				submitText: "Submit"
+				submitText: "Submit",
+				entry: {
+					first: "",
+					last: "",
+					email: "",
+					phone: "",
+					consent: "",
+					waiver: "spa"
+				}
 
             }
 
         },
+
+		methods: {
+
+			// Method for sending data to firebase
+			handleSubmit() {
+
+				// Boolean to temporarily disable the submit button
+				this.loading = true;
+
+				// Text to tell user action is being made
+				this.submitText = "Submitting....";
+
+				// POST request options to be used in fetch
+				const requestOptions = {
+
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(
+						{ 
+							id: "555",
+							first: this.entry.first,
+							last: this.entry.last,
+							email: this.entry.email,
+							phone: this.entry.phone,
+							consent: this.entry.consent,
+							waiver: this.entry.waiver
+						}
+					)
+
+				};
+
+				// The fetch for the POST method
+				fetch("https://testapi.io/api/pechangarc/resource/waiver", requestOptions)
+					.then((res) => res.json())
+					.then((data) => console.log(data));
+
+			},
+
+		}
 		
 	}
 
