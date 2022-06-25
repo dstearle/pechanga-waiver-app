@@ -19,7 +19,7 @@
 
                     <label for="first">* First Name:</label>
 
-                    <input type="text" id="first">
+                    <input type="text" id="first" v-model="entry.first">
 
                 </div>
 
@@ -28,7 +28,7 @@
 
                     <label for="last">* Last Name:</label>
 
-                    <input type="text" id="last">
+                    <input type="text" id="last" v-model="entry.last">
 
                 </div>
 
@@ -37,7 +37,7 @@
 
                     <label for="email">* Email:</label>
 
-                    <input type="text" id="email">
+                    <input type="text" id="email" v-model="entry.email">
 
                 </div>
 
@@ -46,14 +46,20 @@
 
                     <label for="phone">Phone:</label>
 
-                    <input type="text" id="phone">
+                    <input type="text" id="phone" v-model="entry.phone">
 
                 </div>
 
 				<!-- Consent -->
                 <div class="mt-5">
 
-					<input class="mr-3" type="checkbox" id="consent" value="1">
+					<input 
+						class="mr-3" 
+						type="checkbox" 
+						id="consent" 
+						value="1"
+						v-model="entry.consent"
+					>
 
                     <label for="phone">I agree to the following terms and conditions</label>
 
@@ -62,7 +68,7 @@
 				<!-- Waiver -->
                 <div class="hidden">
 
-					<select id="waiver">
+					<select id="waiver" v-model="entry.waiver">
                         <option value="spa">Spa</option>
                         <option value="golf">Golf</option>
                         <option value="casino">Casino</option>
@@ -83,6 +89,8 @@
 	export default {
 
     	name: 'EntryFields',
+
+		props : [ 'entry' ],
 
 	}
 
