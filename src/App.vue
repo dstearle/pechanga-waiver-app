@@ -61,7 +61,9 @@
 					email: "",
 					phone: "",
 					consent: "",
-					waiver: "spa"
+					waiver: "spa",
+					createdAt: "",
+					updatedAt: "",
 				}
 
             }
@@ -92,7 +94,9 @@
 							email: this.entry.email,
 							phone: this.entry.phone,
 							consent: this.entry.consent,
-							waiver: this.entry.waiver
+							waiver: this.entry.waiver,
+							createdAt: this.entry.createdAt,
+							updatedAt: this.entry.updatedAt
 						}
 					)
 
