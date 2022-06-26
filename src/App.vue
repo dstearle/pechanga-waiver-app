@@ -84,6 +84,17 @@
 				// If there are no form errors then submit the form
 				if(this.entry.first && this.entry.last && this.entry.email && this.entry.consent) { 
 
+					// If user does not provide a phone number give a default value
+					if(this.entry.phone == '') {
+
+						this.entry.phone = 'n/a';
+
+					}
+
+					// Set errors array back to empty
+					this.errors = [];
+
+					// Run the POST method
 					return this.handleSubmit(); 
 
 				}
@@ -145,8 +156,15 @@
 				fetch("https://testapi.io/api/pechangarc/resource/waiver", requestOptions)
 					.then(res => {
 
-						// Re-enables the submit button
+						// Resets the fields and re-enables the submit button
 						setTimeout(()=>{
+
+							// Reset fields
+							this.entry.first = null;
+							this.entry.last = null;
+							this.entry.email = null;
+							this.entry.phone = '';
+							this.entry.consent = null;
 
 							this.loading = false
 							this.submitText = "Submit";
