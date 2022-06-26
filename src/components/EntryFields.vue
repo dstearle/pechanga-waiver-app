@@ -76,6 +76,20 @@
 
                 </div>
 
+                <!-- Errors -->
+                <div 
+                    class="mt-5 p-5 bg-red-200 text-red-700 rounded-md"
+                >
+
+                    <div 
+                        :key="index"
+                        v-for="(error, index) in errors"
+                    >
+                        {{error}}
+                    </div>
+
+                </div>
+
             </div>
 
 		</div>
@@ -90,7 +104,7 @@
 
     	name: 'EntryFields',
 
-		props : [ 'entry' ],
+		props : [ 'entry', 'errors' ],
 
 	}
 
