@@ -78,6 +78,7 @@
 
                 <!-- Errors -->
                 <div 
+                    v-show="errors.length != 0"
                     class="mt-5 p-5 bg-red-200 text-red-700 rounded-md"
                 >
 

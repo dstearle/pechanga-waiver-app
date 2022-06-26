@@ -61,7 +61,7 @@
 					first: null,
 					last: null,
 					email: null,
-					phone: null,
+					phone: '',
 					consent: null,
 					waiver: "spa",
 				}
