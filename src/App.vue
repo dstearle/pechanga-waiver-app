@@ -15,6 +15,7 @@
 			<!-- Entries -->
 			<EntryFields 
                 :entry="entry"
+				:errors="errors"
 			/>
 
 			<div class="flex">
