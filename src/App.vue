@@ -3,7 +3,7 @@
 	<div class="p-5">
 
 		<!-- Form -->
-		<form @submit.prevent="handleSubmit">
+		<form @submit.prevent="checkForm">
 
 			<div class="flex flex-col md:flex-row">
 
@@ -53,17 +53,16 @@
 
             return {
 
+				errors: [],
 				loading: false,
 				submitText: "Submit",
 				entry: {
-					first: "",
-					last: "",
-					email: "",
-					phone: "",
-					consent: "",
+					first: null,
+					last: null,
+					email: null,
+					phone: null,
+					consent: null,
 					waiver: "spa",
-					createdAt: "",
-					updatedAt: ""
 				}
 
             }
@@ -72,14 +71,56 @@
 
 		methods: {
 
-			// Method for sending data to firebase
-			handleSubmit() {
+			// Checks the form for user errors and submits when all fields are valid
+			checkForm() {
 
 				// Boolean to temporarily disable the submit button
 				this.loading = true;
 
 				// Text to tell user action is being made
 				this.submitText = "Submitting....";
+
+				// If there are no form errors then submit the form
+				if(this.entry.first && this.entry.last && this.entry.email && this.entry.consent) { 
+
+					return this.handleSubmit(); 
+
+				}
+
+				// Else inform user of form errors
+				else {
+
+					// Boolean to temporarily disable the submit button
+					this.loading = false;
+
+					// Text to tell user action is being made
+					this.submitText = "Try Again";
+
+					// Array of errors to be displayed to user in case of invalid form
+					this.errors = [];
+
+					// Error messages
+					if (!this.entry.first) {
+						this.errors.push('Please provide your first name.');
+					}
+					if (!this.entry.last) {
+						this.errors.push('Please provide your last name.');
+					}
+					if (!this.entry.email) {
+						this.errors.push('Please provide a valid mail.');
+					}
+					if (!this.entry.consent) {
+						this.errors.push('Your consent is required.');
+					}
+
+					console.log(this.errors);
+
+				}
+
+			},
+
+			// Method for sending data to API
+			handleSubmit() {
 
 				// POST request options to be used in fetch
 				const requestOptions = {
@@ -116,6 +157,7 @@
 							
 					})
 					.then(data => { console.log(data) });
+
 			},
 
 		}
