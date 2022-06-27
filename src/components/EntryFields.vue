@@ -76,18 +76,28 @@
 
                 </div>
 
-                <!-- Errors -->
+                <!-- Error Message -->
                 <div 
                     v-show="errors.length != 0"
                     class="mt-5 p-5 bg-red-200 text-red-700 rounded-md"
                 >
 
+                    <!-- List of fields that need to be fixed -->
                     <div 
                         :key="index"
                         v-for="(error, index) in errors"
                     >
                         {{error}}
                     </div>
+
+                </div>
+
+                <!-- Success Message -->
+                <div 
+                    class="mt-5 p-5 bg-green-200 text-green-700 rounded-md"
+                >
+
+                    Test
 
                 </div>
 
