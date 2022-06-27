@@ -59,7 +59,8 @@
 				loading: false,
 				submitText: "Submit",
 				successMessage: "",
-				reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
+				regEmail: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
+				regPhone: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im,
 				entry: {
 					first: null,
 					last: null,
@@ -97,9 +98,6 @@
 					// Set errors array back to empty
 					this.errors = [];
 
-					// Success message
-					this.successMessage = "Success! Your form has been submitted."
-
 					// Run the POST method
 					return this.handleSubmit(); 
 
@@ -136,8 +134,17 @@
 						if (!this.entry.email) {
 							this.errors.push('Please provide your email.');
 						}
-						else if(!this.reg.test(this.entry.email)){
+						else if(!this.regEmail.test(this.entry.email)){
 							this.errors.push("Please enter a valid email");
+						}
+
+						// Check Phone
+						if(this.entry.phone.length > 0) {
+
+							if(!this.regPhone.test(this.entry.phone)){
+								this.errors.push("Please enter a valid phone number");
+							}
+
 						}
 
 						// Check Consent
@@ -183,6 +190,9 @@
 							this.entry.email = null;
 							this.entry.phone = '';
 							this.entry.consent = null;
+
+							// Success message
+							this.successMessage = "Success! Your form has been submitted."
 
 							this.loading = false
 							this.submitText = "Submit";
