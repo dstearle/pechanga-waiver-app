@@ -94,10 +94,11 @@
 
                 <!-- Success Message -->
                 <div 
+                    v-show="successMessage.length != 0"
                     class="mt-5 p-5 bg-green-200 text-green-700 rounded-md"
                 >
 
-                    Test
+                    {{successMessage}}
 
                 </div>
 
@@ -115,7 +116,7 @@
 
     	name: 'EntryFields',
 
-		props : [ 'entry', 'errors' ],
+		props : [ 'entry', 'errors', 'successMessage' ],
 
 	}
 

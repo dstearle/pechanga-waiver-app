@@ -16,6 +16,7 @@
 			<EntryFields 
                 :entry="entry"
 				:errors="errors"
+				:successMessage="successMessage"
 			/>
 
 			<div class="flex">
@@ -57,6 +58,7 @@
 				errors: [],
 				loading: false,
 				submitText: "Submit",
+				successMessage: "",
 				entry: {
 					first: null,
 					last: null,
@@ -94,6 +96,9 @@
 					// Set errors array back to empty
 					this.errors = [];
 
+					// Success message
+					this.successMessage = "Success! Your form has been submitted."
+
 					// Run the POST method
 					return this.handleSubmit(); 
 
@@ -110,6 +115,9 @@
 
 					// Array of errors to be displayed to user in case of invalid form
 					this.errors = [];
+
+					// Clears out the success message
+					this.successMessage = ""
 
 					// Error messages
 					if (!this.entry.first) {
