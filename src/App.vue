@@ -59,6 +59,7 @@
 				loading: false,
 				submitText: "Submit",
 				successMessage: "",
+				reg: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
 				entry: {
 					first: null,
 					last: null,
@@ -119,21 +120,30 @@
 					// Clears out the success message
 					this.successMessage = ""
 
-					// Error messages
-					if (!this.entry.first) {
-						this.errors.push('Please provide your first name.');
-					}
-					if (!this.entry.last) {
-						this.errors.push('Please provide your last name.');
-					}
-					if (!this.entry.email) {
-						this.errors.push('Please provide a valid mail.');
-					}
-					if (!this.entry.consent) {
-						this.errors.push('Your consent is required.');
-					}
+					//*** Error messages ***
 
-					console.log(this.errors);
+						// Check First Name
+						if (!this.entry.first) {
+							this.errors.push('Please provide your first name.');
+						}
+
+						// Check Last Name
+						if (!this.entry.last) {
+							this.errors.push('Please provide your last name.');
+						}
+
+						// Check Email
+						if (!this.entry.email) {
+							this.errors.push('Please provide your email.');
+						}
+						else if(!this.reg.test(this.entry.email)){
+							this.errors.push("Please enter a valid email");
+						}
+
+						// Check Consent
+						if (!this.entry.consent) {
+							this.errors.push('Your consent is required.');
+						}
 
 				}
 
