@@ -29,6 +29,12 @@
 				class="mr-3 px-3 py-1 rounded text-white text-xl border-4 border-violet-700 bg-violet-700 hover:bg-violet-500"
 			>Casino Waiver</router-link>
 
+			<!-- Submissions Link -->
+			<router-link 
+				to="/submissions"
+				class="mr-3 px-3 py-1 rounded text-white text-xl border-4 border-violet-700 bg-violet-700 hover:bg-violet-500"
+			>Submissions</router-link>
+
 		</div>
 
 		<!-- Router View -->
