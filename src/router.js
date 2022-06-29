@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Home from '@/views/Home.vue';
 import Waiver from '@/views/Waiver.vue';
+import Submissions from '@/views/Submissions.vue';
 
 const routes = [
     {
@@ -12,6 +13,11 @@ const routes = [
 		path: '/waiver',
 		name: 'Waiver',
 		component: Waiver,
+	},
+	{
+		path: '/submissions',
+		name: 'Submissions',
+		component: Submissions,
 	},
 ];
 
