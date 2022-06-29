@@ -82,6 +82,22 @@
 			
 		},
 
+		watch: {
+
+			// Watcher for when the waiver query param is changed
+			"$route.query.waiver": {
+
+				handler: function() {
+
+					// Sets the queryParam when after each visit
+					this.queryParam = this.$route.query.waiver;
+
+				},
+
+			},
+
+		},
+
 		methods: {
 
 			// Checks the form for user errors and submits when all fields are valid
