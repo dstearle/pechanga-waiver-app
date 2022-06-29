@@ -55,6 +55,7 @@
 
             return {
 
+				queryParam: '',
 				errors: [],
 				loading: false,
 				submitText: "Submit",
@@ -73,6 +74,13 @@
             }
 
         },
+
+		created() {
+
+			// Sets the queryParam when first visited
+			this.queryParam = this.$route.query.waiver;
+			
+		},
 
 		methods: {
 
