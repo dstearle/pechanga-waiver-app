@@ -55,7 +55,6 @@
 
             return {
 
-				queryParam: '',
 				errors: [],
 				loading: false,
 				submitText: "Submit",
@@ -68,7 +67,7 @@
 					email: null,
 					phone: '',
 					consent: null,
-					waiver: "spa",
+					waiver: "",
 				}
 
             }
@@ -77,8 +76,8 @@
 
 		created() {
 
-			// Sets the queryParam when first visited
-			this.queryParam = this.$route.query.waiver;
+			// Sets the parameter for the form when first visited
+			this.entry.waiver = this.$route.query.waiver;
 			
 		},
 
@@ -89,8 +88,8 @@
 
 				handler: function() {
 
-					// Sets the queryParam when after each visit
-					this.queryParam = this.$route.query.waiver;
+					// Sets the query parameter for the form when after each visit
+					this.entry.waiver = this.$route.query.waiver;
 
 				},
 
