@@ -68,11 +68,7 @@
 				<!-- Waiver -->
                 <div class="hidden">
 
-					<select id="waiver" v-model="entry.waiver">
-                        <option value="spa">Spa</option>
-                        <option value="golf">Golf</option>
-                        <option value="casino">Casino</option>
-                    </select>
+                    <input type="text" id="waiver" v-model="entry.waiver">
 
                 </div>
 
