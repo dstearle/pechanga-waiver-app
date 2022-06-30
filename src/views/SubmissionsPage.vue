@@ -65,9 +65,13 @@
                             
                         });
 
-                    });
+                        // Sets the data to the calendar 
+                        this.submissions = submissionsArray;
 
-                    console.log(submissionsArray)
+                        // The length of the shows array
+                        this.submissionsLength = submissionsArray.length;
+
+                    });
 
             }
 
