@@ -17,7 +17,7 @@
 
     export default {
 
-        name: 'SubmissionsList',
+        name: 'SubmissionsPage',
 
         // components: {
         //     Header,
