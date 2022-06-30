@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import Home from '@/views/Home.vue';
 import Waiver from '@/views/Waiver.vue';
-import Submissions from '@/views/Submissions.vue';
+import SubmissionsList from '@/views/SubmissionsList.vue';
 
 const routes = [
     {
@@ -16,8 +16,8 @@ const routes = [
 	},
 	{
 		path: '/submissions',
-		name: 'Submissions',
-		component: Submissions,
+		name: 'SubmissionsList',
+		component: SubmissionsList,
 	},
 ];
 
