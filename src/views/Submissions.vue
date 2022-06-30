@@ -12,3 +12,31 @@
     </div>
 
 </template>
+
+<script>
+
+    export default {
+
+        name: 'Submissions',
+
+        // components: {
+        //     Header,
+        //     SubmissionsList
+        // },
+        
+        data() {
+
+            return {
+                
+                // The array for submissions
+                submissions: [],
+                // The length of the submissions array
+                submissionsLength: 0,
+
+            }
+
+        },
+
+	}
+
+</script>
