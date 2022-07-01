@@ -13,14 +13,14 @@
 
             <!-- Newer Button -->
             <button 
-                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
+                class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-l"
             >
                 Previous
             </button>
 
             <!-- Older Button -->
             <button 
-                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
+                class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-r"
             >
                 Next
             </button>
