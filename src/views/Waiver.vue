@@ -8,7 +8,7 @@
 			<div class="flex flex-col md:flex-row">
 
 				<!-- Title -->
-				<h2 class="text-3xl">Title</h2>
+				<h2 class="text-3xl">{{ entry.waiver }} Waiver</h2>
 
 			</div>
 
