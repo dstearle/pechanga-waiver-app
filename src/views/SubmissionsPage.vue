@@ -2,13 +2,17 @@
 
     <div class="p-5">
 
-        <div class="flex flex-col md:flex-row">
+        <div class="flex flex-col">
 
             <!-- Title -->
             <h2 class="text-3xl">Submissions</h2>
 
-            <!-- Submissions List -->
-            <SubmissionsList />
+			<div class="submissions-container">
+
+				<!-- Submissions List -->
+				<SubmissionsList :submissions="submissions" :submissionsLength="submissionsLength" />
+
+			</div>
 
         </div>
 
@@ -85,3 +89,16 @@
 	}
 
 </script>
+
+<style>
+
+    .submissions-container {
+        background-color: #1a1a1a;
+        max-width: 1400px;
+        margin: 30px auto;
+        overflow: auto;
+        min-height: 300px;
+        padding: 15px;
+    }
+
+</style>
