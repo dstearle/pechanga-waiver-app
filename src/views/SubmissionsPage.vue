@@ -7,7 +7,7 @@
             <!-- Title -->
             <h2 class="text-3xl">Submissions</h2>
 
-			<div class="submissions-container">
+			<div class="submissions-container mx-auto">
 
 				<!-- Submissions List -->
 				<SubmissionsList :submissions="submissions" :submissionsLength="submissionsLength" />
@@ -93,12 +93,12 @@
 <style>
 
     .submissions-container {
-        background-color: #1a1a1a;
+        background-color: #D1D5DB;
         max-width: 1400px;
-        margin: 30px auto;
         overflow: auto;
         min-height: 300px;
         padding: 15px;
+		border-radius: .25rem;
     }
 
 </style>
