@@ -7,7 +7,7 @@
 
     </div>
 
-    <div class="text-center mt-8">
+    <div class="text-center mt-8 mb-4">
 
         <div class="inline-flex">
 
