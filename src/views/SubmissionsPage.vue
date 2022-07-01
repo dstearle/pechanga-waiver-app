@@ -7,6 +7,9 @@
             <!-- Title -->
             <h2 class="text-3xl">Submissions</h2>
 
+            <!-- Submissions List -->
+            <SubmissionsList />
+
         </div>
 
     </div>
@@ -15,14 +18,16 @@
 
 <script>
 
+    import SubmissionsList from '../components/submissions/SubmissionsList';
+
     export default {
 
         name: 'SubmissionsPage',
 
-        // components: {
-        //     Header,
-        //     SubmissionsList
-        // },
+        components: {
+            // Header,
+            SubmissionsList
+        },
         
         data() {
 
