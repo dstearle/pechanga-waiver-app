@@ -39,7 +39,7 @@
 
 <script>
 
-	import EntryFields from '../components/EntryFields';
+	import EntryFields from '../components/waiver/EntryFields';
 
 	export default {
 
