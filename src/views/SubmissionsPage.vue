@@ -7,7 +7,10 @@
             <!-- Title -->
             <h2 class="text-3xl">Submissions</h2>
 
-			<div class="submissions-container mx-auto">
+			<div class="submissions-container bg-gray-300 mx-auto">
+
+				<!-- Header -->
+        		<Header class="hidden lg:grid"/>
 
 				<!-- Submissions List -->
 				<SubmissionsList :submissions="submissions" :submissionsLength="submissionsLength" />
@@ -22,6 +25,7 @@
 
 <script>
 
+	import Header from '../components/submissions/Header';
     import SubmissionsList from '../components/submissions/SubmissionsList';
 
     export default {
@@ -29,8 +33,10 @@
         name: 'SubmissionsPage',
 
         components: {
-            // Header,
+
+            Header,
             SubmissionsList
+
         },
         
         data() {
@@ -93,11 +99,9 @@
 <style>
 
     .submissions-container {
-        background-color: #D1D5DB;
         max-width: 1400px;
         overflow: auto;
         min-height: 300px;
-        padding: 15px;
 		border-radius: .25rem;
     }
 
