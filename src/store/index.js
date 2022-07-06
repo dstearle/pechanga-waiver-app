@@ -4,119 +4,72 @@ export default createStore({
 
 	state: {
 
-		entries: [
-
-			{
-				date: '',
-				day: '',
-				bands: [
-
-					{
-						name: '',
-						start: '',
-						floor: ''
-					}
-					
-				]
-			}
-			
-		],
+		// The array for submissions
+        submissions: [],
+        // The length of the submissions array
+        submissionsLength: 0,
 
 	},
 
 	mutations: {
 
-		// Fetches data from firebase
-		async getEvents(state) {
+        // Retrieves the submissions from API to populate the Submissions List
+        getSubmissions(state) {
 
-			// The snapshot of the data collection
-			let snapshot = await db.collection('calEvent').get();
+            // Array to hold the data retrieved from the API
+            let submissionsArray = [];
 
-			// Array to hold the data retrieved from firebase
-			let eventsArray = [];
+            // The fetch for the POST method
+            fetch("https://testapi.io/api/pechangarc/resource/waiver")
+                .then((res) => res.json())
+                .then((data) => {
+                    
+                    // Note: All of the submissions are stored in an object called "data" as well hence "data" twice...
+                    // A forEach loop to retrieve each submission
+                    data.data.forEach(submission => {
 
-			// Foreach loop for the data in the firestore
-			snapshot.forEach(doc => {
+                        // Push the submission to the submissionsArray
+                        submissionsArray.push(submission)
+                        
+                    });
 
-				// The data stored in firebase, except the id
-				let appData = doc.data();
+                    // Sets the data to the calendar 
+                    state.submissions = submissionsArray;
 
-				// Sets the id to the retrieved data
-				appData.id = doc.id;
+                    // The length of the shows array
+                    state.submissionsLength = submissionsArray.length;
 
-				// Pushes the retrieved data to the events array
-				eventsArray.push(appData);
+                });
 
-			});
+        },
 
-			// Checks if user device uses an apple product
-			let isIOS = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) && !window.MSStream;
+		// Deletes a submission from the API
+		deleteSubmission(id) {
+            
+            // Array to hold the data retrieved from the API
+            let submissionsArray = [];
 
-			// If isIOS is true then format dates specifically for apple products
-			if(isIOS) { 
+            // The fetch for the DELETE method
+            fetch("https://testapi.io/api/pechangarc/resource/waiver/{" + id + "}", { method: 'DELETE' })
+                .then((res) => res.json())
+                .then((data) => {
+                    
+                    // Note: All of the submissions are stored in an object called "data" as well hence "data" twice...
+                    // A forEach loop to retrieve each submission
+                    data.data.forEach(submission => {
 
-				// Formats the dates for iOS
-				eventsArray.forEach(event => {
+                        // Push the submission to the submissionsArray
+                        submissionsArray.push(submission)
+                        
+                    });
 
-					// If date string is less than eight characters, add a '0' to the front of the month
-					if(event.date.length < 8) {
+                    // Sets the data to the calendar 
+                    this.submissions = submissionsArray;
 
-						// Gets the year
-						const eventYear = event.date.slice(-2);
-						// Gets the month and day
-						const eventMonthDay = event.date.substr(0, 5);
-						// Reformats the date into an iOS friendly format
-						const iOSString = '20' + eventYear + '-0' + eventMonthDay + 'T16:20:19Z';
+                    // The length of the shows array
+                    this.submissionsLength = submissionsArray.length;
 
-						// Provides the object with new formatted date
-						return event.iOSdate = iOSString
-
-					}
-
-					// Else continue format
-					else {
-
-						// Gets the year
-						const eventYear = event.date.slice(-2);
-						// Gets the month and day
-						const eventMonthDay = event.date.substr(0, 5);
-						// Reformats the date into an iOS friendly format
-						const iOSString = '20' + eventYear + '-' + eventMonthDay + 'T16:20:19Z';
-
-						// Provides the object with new formatted date
-						return event.iOSdate = iOSString
-
-					}
-
-				})
-				
-				// Sorts the eventsArray by the date
-				const sortedArray = eventsArray.sort(function(a,b) { 
-
-					return new Date(a.iOSdate).getTime() - new Date(b.iOSdate).getTime() 
-
-				});
-
-				// Sets the data to the calendar 
-				state.entries = sortedArray.reverse();
-				
-			}
-
-			// Else use the regular format the rest of the world uses
-			else {
-
-				// Sorts the eventsArray by the date
-				const sortedArray = eventsArray.sort(function(a,b) { 
-
-					return new Date(a.date).getTime() - new Date(b.date).getTime() 
-
-				});
-
-
-				// Sets the data to the calendar 
-				state.entries = sortedArray.reverse();
-
-			}
+                });
 
 		}
 

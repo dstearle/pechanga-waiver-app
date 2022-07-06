@@ -44,8 +44,8 @@
 
 				<!-- Submissions List -->
 				<SubmissionsList 
-					:submissions="submissions" 
-					:submissionsLength="submissionsLength" 
+					:submissions="getSubmissionsState" 
+					:submissionsLength="getSubmissionsLengthState" 
 					:selectedCategory="selectedCategory"
 				/>
 
@@ -59,6 +59,8 @@
 
 <script>
 
+	import { useStore } from "vuex";
+	import { mapMutations } from 'vuex';
 	import Header from '../components/submissions/Header';
     import SubmissionsList from '../components/submissions/SubmissionsList';
 
@@ -77,10 +79,6 @@
 
             return {
                 
-                // The array for submissions
-                submissions: [],
-                // The length of the submissions array
-                submissionsLength: 0,
 				// The selected waiver to filter the list by
 				selectedCategory: "all"
 
@@ -94,37 +92,38 @@
 
         },
 
+		computed: {
+
+			// The state for "submissions"
+			getSubmissionsState() {
+
+				// Initialize use of Vuex store
+				const store = useStore();
+
+				return store.state.submissions
+
+			},
+
+			// The state for "submissionsLength"
+			getSubmissionsLengthState() {
+
+				// Initialize use of Vuex store
+				const store = useStore();
+
+				return store.state.submissionsLength
+
+			}
+
+		},
+
         methods: {
 
-            // Retrieves the submissions from API to populate the Submissions List
-            getSubmissions() {
+            ...mapMutations([
 
-                // Array to hold the data retrieved from the API
-                let submissionsArray = [];
+                'getSubmissions',
+				'deleteSubmission'
 
-                // The fetch for the POST method
-				fetch("https://testapi.io/api/pechangarc/resource/waiver")
-					.then((res) => res.json())
-					.then((data) => {
-                        
-                        // Note: All of the submissions are stored in an object called "data" as well hence "data" twice...
-                        // A forEach loop to retrieve each submission
-                        data.data.forEach(submission => {
-
-                            // Push the submission to the submissionsArray
-                            submissionsArray.push(submission)
-                            
-                        });
-
-                        // Sets the data to the calendar 
-                        this.submissions = submissionsArray;
-
-                        // The length of the shows array
-                        this.submissionsLength = submissionsArray.length;
-
-                    });
-
-            },
+            ]),
 
         }
 
