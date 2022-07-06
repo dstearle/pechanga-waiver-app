@@ -14,6 +14,8 @@
             <!-- Newer Button -->
             <button 
                 class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-l"
+				@click="newer()"
+                v-show="this.currentIndex > 19"
             >
                 Previous
             </button>
@@ -21,6 +23,8 @@
             <!-- Older Button -->
             <button 
                 class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded-r"
+				@click="older()"
+                v-show="this.boola"
             >
                 Next
             </button>
@@ -123,13 +127,7 @@
 			boolaToggle(){
 
 				// If the current index is at the end of the array then hide the 'Older' button
-				if(this.currentIndex === (this.submissionsLength - 7 )) { return this.boola = false }
-				if(this.currentIndex === (this.submissionsLength - 6 )) { return this.boola = false }
-				if(this.currentIndex === (this.submissionsLength - 5 )) { return this.boola = false }
-				if(this.currentIndex === (this.submissionsLength - 4 )) { return this.boola = false }
-				if(this.currentIndex === (this.submissionsLength - 3 )) { return this.boola = false }
-				if(this.currentIndex === (this.submissionsLength - 2 )) { return this.boola = false }
-				if(this.currentIndex === (this.submissionsLength - 1 )) { return this.boola = false }
+				if(this.currentIndex >= this.submissionsLength - 19 && this.currentIndex <= this.submissionsLength - 1 ) { return this.boola = false }
 
 				// Else will show the 'Older' Button
 				else { return this.boola = true }
