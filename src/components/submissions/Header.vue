@@ -1,6 +1,6 @@
 <template>
 
-    <div class="grid grid-cols-8 gap-4 p-3 justify-center items-center text-base font-light md:font-extrabold text-white bg-violet-700">
+    <div class="grid grid-cols-8 gap-4 p-3 justify-center text-center text-base font-light md:font-extrabold text-white bg-violet-700">
 
 		<!-- Waiver -->
 		<h2 class="col-span-1">WAIVER</h2>

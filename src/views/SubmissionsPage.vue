@@ -7,10 +7,10 @@
             <!-- Title -->
             <h2 class="text-3xl">Submissions</h2>
 
-			<div class="submissions-container bg-gray-300 mx-auto">
+			<div class="submissions-container bg-gray-300 mt-5 mx-auto">
 
 				<!-- Header -->
-        		<Header class="grid"/>
+        		<Header />
 
 				<!-- Submissions List -->
 				<SubmissionsList :submissions="submissions" :submissionsLength="submissionsLength" />
