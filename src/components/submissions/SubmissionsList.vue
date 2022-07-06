@@ -53,6 +53,7 @@
 
 			submissions: Array,
 			submissionsLength: Number,
+			selectedCategory: String,
 
 		},
 
@@ -60,9 +61,9 @@
 
 			return {
 
-				// Current index for the shows list
+				// Current index for the submissions list
 				currentIndex: 0,
-				// The limit of viewable shows
+				// The limit of viewable submissions
 				limit: 20,
 				// Determins if 'Older' button is visible
 				boola: true,
@@ -95,9 +96,24 @@
 		computed: {
 
 			// Paginates the list
-			filteredSubmissionsList(){
+			filteredSubmissionsList() {
 
-				return this.limit ? this.submissions.slice(this.currentIndex, this.limit) : this.submissions
+				return this.limit ? this.FilteredByWaivers.slice(this.currentIndex, this.limit) : this.FilteredByWaivers
+
+			},
+
+			// Filters the list by the waiver select box
+			FilteredByWaivers() {
+
+				// If the select box is set to "Spa", "Golf", or "Casino" then show all submissions for that category
+				if(this.selectedCategory === "Spa" || this.selectedCategory === "Golf" || this.selectedCategory === "Casino") {
+
+					return this.submissions.filter(submission => !submission.waiver.indexOf(this.selectedCategory))
+
+				}
+
+				// Else show all submissions
+				else { return this.submissions }
 
 			},
 
