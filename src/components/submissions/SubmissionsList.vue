@@ -59,7 +59,7 @@
 				// Current index for the shows list
 				currentIndex: 0,
 				// The limit of viewable shows
-				limit: 7,
+				limit: 20,
 				// Determins if 'Older' button is visible
 				boola: true,
 
@@ -76,7 +76,7 @@
 				handler() { 
 					
 					// If submissionsLength prop is less than 8 items then hide the 'Older' button
-					if(this.submissionsLength < 8) {
+					if(this.submissionsLength < 21) {
 
 						this.boola = false
 
@@ -104,8 +104,8 @@
 			// Method for showing older shows in the list
 			older() {
 
-				this. limit += 7;
-				this.currentIndex += 7;
+				this. limit += 20;
+				this.currentIndex += 20;
 				this.boolaToggle();
 
 			},
@@ -113,8 +113,8 @@
 			// Method for showing newer shows in the list
 			newer() {
 
-				this. limit -= 7;
-				this.currentIndex -= 7;
+				this. limit -= 20;
+				this.currentIndex -= 20;
 				this.boolaToggle();
 
 			},
