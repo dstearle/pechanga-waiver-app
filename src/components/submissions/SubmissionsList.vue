@@ -3,7 +3,7 @@
     <!-- List of submissions -->
     <div :key="submission.id" v-for="submission in filteredSubmissionsList">
 
-        <submission :submission="submission" />
+        <Submission :submission="submission" />
 
     </div>
 
