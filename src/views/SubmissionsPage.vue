@@ -10,7 +10,7 @@
 			<div class="submissions-container bg-gray-300 mx-auto">
 
 				<!-- Header -->
-        		<Header class="hidden lg:grid"/>
+        		<Header class="grid"/>
 
 				<!-- Submissions List -->
 				<SubmissionsList :submissions="submissions" :submissionsLength="submissionsLength" />
