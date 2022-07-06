@@ -20,8 +20,12 @@
 						Location:
 
 						<!-- Select Box -->
-						<select id="waiver_select" class="ml-3 text-center bg-violet-50 border border-violet-300 text-violet-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-1 dark:bg-violet-700 dark:border-violet-600 dark:placeholder-violet-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500">
-							<option selected>All</option>
+						<select 
+							id="waiver_select" 
+							v-model="this.selectedCategory"
+							class="ml-3 text-center bg-violet-50 border border-violet-300 text-violet-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-1 dark:bg-violet-700 dark:border-violet-600 dark:placeholder-violet-400 dark:text-white dark:focus:ring-gray-500 dark:focus:border-gray-500"
+						>
+							<option value="all">All</option>
 							<option value="Spa">Spa</option>
 							<option value="Golf">Golf</option>
 							<option value="Casino">Casino</option>
@@ -39,7 +43,11 @@
         		<Header />
 
 				<!-- Submissions List -->
-				<SubmissionsList :submissions="submissions" :submissionsLength="submissionsLength" />
+				<SubmissionsList 
+					:submissions="submissions" 
+					:submissionsLength="submissionsLength" 
+					:selectedCategory="selectedCategory"
+				/>
 
 			</div>
 
@@ -73,6 +81,8 @@
                 submissions: [],
                 // The length of the submissions array
                 submissionsLength: 0,
+				// The selected waiver to filter the list by
+				selectedCategory: "all"
 
             }
 
